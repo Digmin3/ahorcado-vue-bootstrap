@@ -1,17 +1,24 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <SelectorDificultad v-if="!dificultad" v-on:dificultad="dificultad = $event"/>
+    <Juego v-if="dificultad" v-bind:dificultad="dificultad"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SelectorDificultad from "./components/SelectorDificultad";
+import Juego from "./components/Juego";
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    SelectorDificultad,
+    Juego
+  },
+  data: function () {
+    return {
+      dificultad: null
+    }
   }
 }
 </script>
