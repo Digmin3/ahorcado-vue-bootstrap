@@ -15,6 +15,7 @@
         <b-form @submit="onSubmit" v-if="!finJuego">
           <b-form-group label="Introduce una letra" class="d-flex justify-content-center">
             <b-form-input
+                ref="inputLetra"
                 autocomplete="off"
                 id="letraIntento"
                 v-model="letraIntento"
@@ -131,6 +132,7 @@
     methods: {
       onSubmit(evt) {
         evt.preventDefault();
+        this.$refs["inputLetra"].focus();
 
         this.letraIntento = this.letraIntento.toUpperCase();
 
