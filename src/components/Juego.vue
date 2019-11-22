@@ -33,7 +33,9 @@
       </b-col>
       <b-col md="4">
         <p>Intentos restantes: {{intentos}}</p>
-        <b-button variant="primary" @click="reiniciar">Reiniciar partida</b-button>
+        <b-button variant="warning" @click="reiniciar">Reiniciar partida</b-button>
+        <p></p>
+        <b-button variant="danger" @click="volver">Volver al menú</b-button>
       </b-col>
     </b-row>
   </b-container>
@@ -164,6 +166,9 @@
         } else if (this.dificultad === DIFICIL) {
           this.intentos = Math.floor(this.palabra.length * 0.8);
         }
+      },
+      volver() {
+        this.$emit('volver');
       }
     }
   }

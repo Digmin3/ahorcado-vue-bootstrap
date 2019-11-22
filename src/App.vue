@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <SelectorDificultad v-if="!dificultad" v-on:dificultad="dificultad = $event"/>
-    <Juego v-if="dificultad" v-bind:dificultad="dificultad"/>
+    <Juego v-if="dificultad" v-bind:dificultad="dificultad" v-on:volver="dificultad = null"/>
   </div>
 </template>
 
